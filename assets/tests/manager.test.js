@@ -1,4 +1,5 @@
 const Manager = require('../lib/manager');
+//const Engineer = require('../lib/engineer');
 
 describe('Manager', () => {
     describe('newManager', () => {
@@ -34,10 +35,45 @@ describe('Manager', () => {
     })
     describe('getRole', () => {
         it('Should return the role of the manager', () => {
-            const role = 'Manager';
+            const role = '🍵 Manager';
             const manager = new Manager('Pam', 2, 'pam@abc.com', 105);
 
             expect(manager.getRole()).toEqual(role);
         })
     })
+    // describe('addTeam', () => {
+    //     it('Should add new engineer to teamMembers array', () => {
+    //         const manager = new Manager('Sara', 1, 'sara@abc.com', 106);
+    //         const engineer = new Engineer('Felix', 8, 'felix@abc.com', 'GitFelix')
+
+    //         manager.addTeam(engineer);
+
+    //         expect(manager.teamMembers[0]).toEqual(expect.objectContaining({ name: 'Felix' }));
+    //     })
+
+    //     it('Should not add team members to other managers', () => {
+    //         const managerOne = new Manager('Sara', 1, 'sara@abc.com', 106);
+    //         const managerTwo = new Manager('Pam', 2, 'pam@abc.com', 105)
+    //         const engineer = new Engineer('Felix', 8, 'felix@abc.com', 'GitFelix')
+
+    //         managerOne.addTeam(engineer);
+
+    //         expect(managerTwo.teamMembers.length).toEqual(0);
+    //     })
+    // })
+    // describe('getTeam', () => {
+    //     it("Should return the manager's team", () => {
+    //         const manager = new Manager('Sara', 1, 'sara@abc.com', 106);
+    //         const engineerOne = new Engineer('Felix', 8, 'felix@abc.com', 'GitFelix')
+    //         const engineerTwo = new Engineer('Charlotte', 9, 'charlotte@abc.com', 'GitCharlotte');
+
+    //         manager.addTeam(engineerOne);
+    //         manager.addTeam(engineerTwo);
+
+    //         const team = manager.getTeam()
+
+    //         expect(team).toContain(engineerOne);
+    //         expect(team).toContain(engineerTwo);
+    //     })
+    // })
 })
