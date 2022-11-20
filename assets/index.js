@@ -1,4 +1,5 @@
 const inquirer = require('inquirer');
+const writer = require('./dist/createFile');
 const fs = require('fs');
 const Engineer = require('./lib/engineer');
 const Intern = require('./lib/intern');
@@ -6,15 +7,11 @@ const Manager = require('./lib/manager')
 let employees = [];
 
 const createHTML = () => {
-    let sortedList = [];
-    for(let i = 0; i < employees.length; i++) {
-        sortedList
-    }
-
+    fs.writeFile(`./dist/${employees[0].name}'s Team.html`, `${writer(employees)}`, (err) => 
+    err ? console.error(err) : console.log('Success!'));
 }
 
 const deleteCheck = (newEmployee, index) => {
-    console.log(employees[index])
     inquirer
         .prompt([
             {
@@ -78,7 +75,15 @@ const enterIntern = () => {
                 chooseEntry();
             }
             else {
-                if(employees.find(search => search.id === response.id)) {
+                if(employees.find(search => search.id === response.id) && employees.find(search => search instanceof Manager)) {
+                    console.log('Cannot change Manager profile until a new session is started');
+                    chooseEntry();
+                }
+                else if(employees.find(search => search.name === response.name) && employees.find(search => search instanceof Manager)) {
+                    console.log('Cannot change Manager profile until a new session is started');
+                    chooseEntry();
+                }
+                else if(employees.find(search => search.id === response.id)) {
                     let index = employees.findIndex(search => search.id === response.id)
                     console.log('That employee ID is already in use.')
                     deleteCheck(response, index);
@@ -132,7 +137,15 @@ const enterEngineer = () => {
                 chooseEntry();
             }
             else {
-                if(employees.find(search => search.id === response.id)) {
+                if(employees.find(search => search.id === response.id) && employees.find(search => search instanceof Manager)) {
+                    console.log('Cannot change Manager profile until a new session is started');
+                    chooseEntry();
+                }
+                else if(employees.find(search => search.name === response.name) && employees.find(search => search instanceof Manager)) {
+                    console.log('Cannot change Manager profile until a new session is started');
+                    chooseEntry();
+                }
+                else if(employees.find(search => search.id === response.id)) {
                     let index = employees.findIndex(search => search.id === response.id)
                     console.log('That employee ID is already in use.')
                     deleteCheck(response, index);
@@ -152,7 +165,6 @@ const enterEngineer = () => {
 }
 
 const chooseEntry = () => {
-    console.log(employees)
     inquirer
         .prompt([
             {
