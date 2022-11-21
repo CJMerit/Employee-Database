@@ -42,8 +42,9 @@ describe('Engineer', () => {
     })
     describe('getGithub', () => {
         it('Should return the Github username of the engineer', () => {
-            const github = 'GitSara';
-            const engineer = new Engineer('Sara', 1, 'sara@abc.com', github);
+            const gitUser = 'GitSara';
+            const github = 'https://github.com/GitSara';
+            const engineer = new Engineer('Sara', 1, 'sara@abc.com', gitUser);
 
             expect(engineer.getGithub()).toEqual(github);
         })

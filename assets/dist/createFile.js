@@ -1,5 +1,4 @@
 const createCards = (employees) => {
-    console.log(employees)
     let employeeCards = [];
     for(let i = 0; i < employees.length; i++){
         switch(employees[i].getRole()) {
@@ -51,7 +50,6 @@ employeeCards.push(`        <div class="card m-4 col-12 col-md-4 col-xl-3">
         }
     }
     employeeCards = employeeCards.join('\n')
-    console.log(employeeCards)
     return employeeCards;
 }
 
