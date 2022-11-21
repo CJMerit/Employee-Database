@@ -1,0 +1,19 @@
+.jumbotron {
+    background-color: forestgreen;
+    font-weight: bolder;
+    font-size: x-large;
+    color: white;
+}
+
+.card-header {
+    background-color: purple;
+    color: white;
+}
+
+.list-group {
+    margin: 5px 0;
+}
+
+.list-group-item {
+    margin: 5px;
+}
